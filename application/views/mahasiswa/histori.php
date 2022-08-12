@@ -57,7 +57,7 @@
                                 <td><?php echo $key->jam_absen; ?></td>
                                 <td><?php echo $key->tanggal; ?></td>
                                 <td><?php echo $key->status_absen; ?></td>
-                            <?php } ?>
+                            <?php } } ?>
                     </tbody>
                 </table>
             </div>
