@@ -41,13 +41,13 @@ class Mahasiswa extends CI_Controller {
 		$data['tgl2'] = $this->input->get('tgl2', true);
 
 		if ($data['tgl1'] != "" && $data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen >= "' . $data['tgl1'] . '" and absen <= "' . $data['tgl2'] . '"')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '" and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
 		} elseif ($data['tgl1'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen >= "' . $data['tgl1'] . '"')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '"')->result();
 		} elseif ($data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen <= "' . $data['tgl2'] . '"')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
 		} else {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa')->result();
 		}
 		
 		$this->load->view('mahasiswa/header');
@@ -61,13 +61,13 @@ class Mahasiswa extends CI_Controller {
 		$data['tgl2'] = $this->input->get('tgl2', true);
 
 		if ($data['tgl1'] != "" && $data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen >= "' . $data['tgl1'] . '" and absen <= "' . $data['tgl2'] . '"')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '" and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
 		} elseif ($data['tgl1'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen >= "' . $data['tgl1'] . '"')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '"')->result();
 		} elseif ($data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen <= "' . $data['tgl2'] . '"')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
 		} else {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen')->result();
+			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa')->result();
 		}
 
 		$this->load->view('mahasiswa/cetak_histori', $data);

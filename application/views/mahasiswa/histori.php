@@ -40,7 +40,6 @@
                             <th>NIM</th>
                             <th>Nama Mahasiswa</th>
                             <th>Jam Masuk</th>
-                            <th>Tgl Absen</th>
                             <th>Status Absen</th>
                         </tr>
                     </thead>
@@ -55,8 +54,14 @@
                                 <td><?php echo $key->nim; ?></td>
                                 <td><?php echo $key->nama; ?></td>
                                 <td><?php echo $key->jam_absen; ?></td>
-                                <td><?php echo $key->tanggal; ?></td>
-                                <td><?php echo $key->status_absen; ?></td>
+                                <td>
+                                    <?php if($key->jam_absen < date('Y-m-d, 10:00:00')){
+                                        echo "On Time";
+                                    }else{
+                                        echo "Terlambat";
+                                    }
+                                    ?>
+                                </td>
                             <?php } } ?>
                     </tbody>
                 </table>
