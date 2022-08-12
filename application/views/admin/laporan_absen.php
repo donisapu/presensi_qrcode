@@ -9,28 +9,6 @@
             <form style="padding-bottom:20px;" class="form-inline" method="get" action="<?php echo site_url('admin/laporan_absen'); ?>" style="padding-bottom:20px;">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <span>Pilih Kelas</span><br>
-                        <select name="nama_kelas" class="form-control" require>
-                            <option value="">pilih</option>
-                            <?php foreach ($kelas as $kel) { ?>
-                                <option value="<?= $kel->nama_kelas ?>"><?php echo $tgl1; ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-info" style="margin-right:10px;">Pilih</button>
-                    <a href="<?php echo site_url('admin/laporan_absen') ?>" class="btn btn-success ">
-                        <font color="white">Refresh</font>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                </div>
-            </form>
-            <hr>
-            <form style="padding-bottom:20px;" class="form-inline" method="get" action="<?php echo site_url('admin/laporan_absen'); ?>" style="padding-bottom:20px;">
-                <div class="col-md-4">
-                    <div class="form-group">
                         <span>Dari Tanggal</span><br>
                         <input type="date" name="tgl1" class="form-control" value="<?php echo $tgl1; ?>">
 
@@ -61,7 +39,6 @@
                             <th>No</th>
                             <th>NIM</th>
                             <th>Nama Mahasiswa</th>
-                            <th>Jadwal</th>
                             <th>Jam Masuk</th>
                             <th>Tgl Absen</th>
                             <th>Status Absen</th>
@@ -76,10 +53,6 @@
                                 <td><?= $no++ ?></td>
                                 <td><?php echo $key->nim; ?></td>
                                 <td><?php echo $key->nama; ?></td>
-                                <td>
-                                    <?php echo $key->nama_mapel; ?><br>
-                                    <?php echo $key->hari; ?> | <?php echo $key->jam_masuk; ?>| <?php echo $key->nama_kelas; ?>
-                                </td>
                                 <td><?php echo $key->jam_absen; ?></td>
                                 <td><?php echo $key->tanggal; ?></td>
                                 <td><?php echo $key->status_absen; ?></td>

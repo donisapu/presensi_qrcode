@@ -417,50 +417,19 @@ class Admin extends CI_Controller
 
 	public function laporan_absen()
 	{
-		$data['id_kelas'] = $this->input->get('id_kelas', true);
+		$data['tgl1'] = $this->input->get('tgl1', true);
+		$data['tgl2'] = $this->input->get('tgl2', true);
 
-		if ($data['id_kelas'] != "") {
-			$data['tgl1'] = $this->input->get('tgl1', true);
-			$data['tgl2'] = $this->input->get('tgl2', true);
-
-			if ($data['tgl1'] != "" && $data['tgl2'] != "") {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa and e.id_kelas="' . $data['id_kelas'] . '" and tanggal >= "' . $data['tgl1'] . '" and tanggal <= "' . $data['tgl2'] . '"')->result();
-			} elseif ($data['tgl1'] != "") {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa and e.id_kelas="' . $data['id_kelas'] . '" and tanggal >= "' . $data['tgl1'] . '"')->result();
-			} elseif ($data['tgl2'] != "") {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa and e.id_kelas="' . $data['id_kelas'] . '" and tanggal <= "' . $data['tgl2'] . '"')->result();
-			} else {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa and e.id_kelas="' . $data['id_kelas'] . '"')->result();
-			}
+		if ($data['tgl1'] != "" && $data['tgl2'] != "") {
+			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen >= "' . $data['tgl1'] . '" and absen <= "' . $data['tgl2'] . '"')->result();
+		} elseif ($data['tgl1'] != "") {
+			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen >= "' . $data['tgl1'] . '"')->result();
+		} elseif ($data['tgl2'] != "") {
+			$data['absen'] = $this->db->query('SELECT * FROM  absen where absen <= "' . $data['tgl2'] . '"')->result();
 		} else {
-			if ($data['tgl1'] != "" && $data['tgl2'] != "") {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa and tanggal >= "' . $data['tgl1'] . '" and tanggal <= "' . $data['tgl2'] . '"')->result();
-			} elseif ($data['tgl1'] != "") {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa and tanggal >= "' . $data['tgl1'] . '"')->result();
-			} elseif ($data['tgl2'] != "") {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa and tanggal <= "' . $data['tgl2'] . '"')->result();
-			} else {
-				$data['absen'] = $this->db->query('SELECT * FROM absen a, detail_jadwal b, jadwal c, detail_kelas d, kelas e, mapel f, 
-				mahasiswa g where a.id_detail_jadwal=b.id_detail_jadwal and b.id_jadwal=c.id_jadwal and c.id_detail_kelas=d.id_detail_kelas and d.id_kelas=e.id_kelas and d.id_mapel=f.id_mapel 
-				and b.id_mahasiswa=g.id_mahasiswa')->result();
-			}
+			$data['absen'] = $this->db->query('SELECT * FROM  absen')->result();
 		}
-
-
+		
 		$this->load->view('admin/header');
 		$this->load->view('admin/laporan_absen', $data);
 		$this->load->view('admin/footer');
