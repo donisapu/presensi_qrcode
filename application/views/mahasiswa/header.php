@@ -95,12 +95,13 @@
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <!-- <a class="dropdown-item" href="<?= site_url('mahasiswa/form_edit_mahasiswa/'.$id)?>">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Update Akun
-                </a> -->
+                <a class="dropdown-item" href="<?= site_url('mahasiswa/histori/'.$id)?>">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Histori Absensi
+                </a>
                 
                 <div class="dropdown-divider"></div>
+
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
