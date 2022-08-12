@@ -54,7 +54,7 @@
                                 <td><?php echo $key->nama; ?></td>
                                 <td><?php echo $key->jam_absen; ?></td>
                                 <td>
-                                    <?php if($key->jam_absen < date('Y-m-d, 10:00:00')){
+                                    <?php if($key->jam_absen < date('Y-m-d, H:i:s')){
                                         echo "On Time";
                                     }else{
                                         echo "Terlambat";
