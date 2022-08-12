@@ -27,7 +27,7 @@
                     <!-- <a href="<?php echo site_url('admin/laporan_absen') ?>" class="btn btn-success ">
                         <font color="white">Refresh</font>
                     </a> -->
-                    <a href="<?php echo site_url('admin/cetak_laporan?tgl1=' . $tgl1 . '&tgl2=' . $tgl2); ?>" target="_blank" class="btn btn-warning">
+                    <a href="<?php echo site_url('admin/cetak_laporan_absen?tgl1=' . $tgl1 . '&tgl2=' . $tgl2); ?>" target="_blank" class="btn btn-warning">
                         <font color="white">Print PDF</font>
                     </a>
                 </div>

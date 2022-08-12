@@ -450,6 +450,6 @@ class Admin extends CI_Controller
 			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa')->result();
 		}
 
-		$this->load->view('admin/cetak_laporan_absen', $data);
+		$this->load->view('admin/cetak_laporan', $data);
 	}
 }
