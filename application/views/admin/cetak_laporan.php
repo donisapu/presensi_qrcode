@@ -26,7 +26,6 @@
                 <th>NIM</th>
                 <th>Nama Mahasiswa</th>
                 <th>Jam Masuk</th>
-                <th>Tgl Absen</th>
                 <th>Status Absen</th>
             </tr>
         </thead>
@@ -34,14 +33,19 @@
         <tbody>
             <?php $no = 1;
             foreach ($absen as $key) { ?>
-
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?php echo $key->nim; ?></td>
                     <td><?php echo $key->nama; ?></td>
                     <td><?php echo $key->jam_absen; ?></td>
-                    <td><?php echo $key->tanggal; ?></td>
-                    <td><?php echo $key->status_absen; ?></td>
+                    <td>
+                        <?php if($key->jam_absen < date('Y-m-d, H:i:s')){
+                          echo "On Time";
+                        }else{
+                          echo "Terlambat";
+                        }
+                        ?>     
+                    </td>
                 <?php } ?>
         </tbody>
     </table>
