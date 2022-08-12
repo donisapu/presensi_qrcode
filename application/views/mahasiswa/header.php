@@ -95,7 +95,7 @@
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?= site_url('mahasiswa/histori/'.$id)?>">
+                <a class="dropdown-item" href="<?= site_url('mahasiswa/histori')?>">
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                     Histori Absensi
                 </a>
