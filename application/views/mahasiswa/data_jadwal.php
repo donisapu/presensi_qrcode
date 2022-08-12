@@ -8,7 +8,7 @@
                         <div class="card-body">
                         <?php echo $this->session->flashdata('suces')?>
                             <br>
-
+                <div class="table-responsive">  
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                             
                         </tbody>
                     </table>
-                
+                </div>
             </div>
         </div>
     </div>
