@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <form style="padding-bottom:20px;" class="form-inline" method="get" action="<?php echo site_url('admin/laporan_absen'); ?>" style="padding-bottom:20px;">
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="form-group">
                         <span>Dari Tanggal</span><br>
                         <input type="date" name="tgl1" class="form-control" value="<?php echo $tgl1; ?>">
@@ -20,14 +20,14 @@
                         <input type="date" name="tgl2" class="form-control" value="<?php echo $tgl2; ?>">
 
                     </div>
-                </div>
+                </div> -->
 
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-info" style="margin-right:10px;">Pilih</button>
+                    <!-- <button type="submit" class="btn btn-info" style="margin-right:10px;">Pilih</button> -->
                     <!-- <a href="<?php echo site_url('admin/laporan_absen') ?>" class="btn btn-success ">
                         <font color="white">Refresh</font>
                     </a> -->
-                    <a href="<?php echo site_url('admin/cetak_laporan_absen?tgl1=' . $tgl1 . '&tgl2=' . $tgl2); ?>" target="_blank" class="btn btn-warning">
+                    <a href="<?php echo site_url('mahasiswa/cetak_histori?tgl1=' . $tgl1 . '&tgl2=' . $tgl2); ?>" target="_blank" class="btn btn-warning">
                         <font color="white">Print PDF</font>
                     </a>
                 </div>
