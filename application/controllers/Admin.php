@@ -169,7 +169,7 @@ class Admin extends CI_Controller
 		$alamat = $_POST['alamat'];
 		$no_telp = $_POST['no_telp'];
 
-		$this->load->library('ciqrcode'); //pemanggilan library QR CODE
+		$this->load->library('Ciqrcode'); //pemanggilan library QR CODE
 
 		$config['cacheable']    = true; //boolean, the default is true
 		$config['cachedir']     = './assets/'; //string, the default is application/cache/
@@ -208,7 +208,7 @@ class Admin extends CI_Controller
 		$alamat = $_POST['alamat'];
 		$no_telp = $_POST['no_telp'];
 
-		$this->load->library('ciqrcode'); //pemanggilan library QR CODE
+		$this->load->library('Ciqrcode'); //pemanggilan library QR CODE
 
 		$config['cacheable']    = true; //boolean, the default is true
 		$config['cachedir']     = './assets/'; //string, the default is application/cache/
