@@ -3,14 +3,14 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Administrator</h6>
+                            <h6 class="m-0 font-weight-bold text-purple">Data Administrator</h6>
                         </div>
                         <div class="card-body">
                         <?php echo $this->session->flashdata('suces')?>
                             <br>
 
-                <button type="button"  data-toggle="modal" data-target="#tambah" class="btn btn-light btn-icon-split">
-                    <span class="icon text-gray-600">
+                <button type="button"  data-toggle="modal" data-target="#tambah" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-purple-600">
                         <i class="fas fa-plus"></i>
                     </span>
                     <span class="text">Tambah</span>

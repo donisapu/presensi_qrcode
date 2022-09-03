@@ -310,8 +310,9 @@ class Admin extends CI_Controller
 		$id_detail_kelas = $_POST['id_detail_kelas'];
 		$hari = $_POST['hari'];
 		$jam_masuk = $_POST['jam_masuk'];
+		$jam_pulang = $_POST['jam_pulang'];
 
-		$data = array('id_detail_kelas' => $id_detail_kelas, 'hari' => $hari, 'jam_masuk' => $jam_masuk);
+		$data = array('id_detail_kelas' => $id_detail_kelas, 'hari' => $hari, 'jam_masuk' => $jam_masuk, 'jam_pulang' => $jam_pulang);
 		$add = $this->Mcrud->tambah('jadwal', $data);
 		if ($add > 0) {
 			$this->session->set_flashdata('suces', '<div class="col-md-12" ><div class="alert alert-success alert-message" align="center">Data Berhasil Disimpan !</div></div>');
@@ -326,8 +327,9 @@ class Admin extends CI_Controller
 		$id_detail_kelas = $_POST['id_detail_kelas'];
 		$hari = $_POST['hari'];
 		$jam_masuk = $_POST['jam_masuk'];
+		$jam_pulang = $_POST['jam_pulang'];
 
-		$data = 'id_detail_kelas="' . $id_detail_kelas . '", hari="' . $hari . '", jam_masuk="' . $jam_masuk . '"';
+		$data = 'id_detail_kelas="' . $id_detail_kelas . '", hari="' . $hari . '", jam_masuk="' . $jam_masuk . '", jam_pulang="' . $jam_pulang . '"';
 		$edit = $this->Mcrud->update('jadwal', $data, "id_jadwal='$id'");
 		$this->session->set_flashdata('suces', '<div class="col-md-12" ><div class="alert alert-success alert-message" align="center">Data Berhasil Diedit !</div></div>');
 		redirect('admin/atur_jadwal');
@@ -415,41 +417,41 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function laporan_absen()
-	{
-		$data['tgl1'] = $this->input->get('tgl1', true);
-		$data['tgl2'] = $this->input->get('tgl2', true);
-
-		if ($data['tgl1'] != "" && $data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '" and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
-		} elseif ($data['tgl1'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '"')->result();
-		} elseif ($data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
-		} else {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa')->result();
-		}
+	public function laporan_absen(){
 		
-		$this->load->view('admin/header');
-		$this->load->view('admin/laporan_absen', $data);
-		$this->load->view('admin/footer');
-	}
+                $data['tgl1'] = $this->input->get('tgl1', true);
+                $data['tgl2'] = $this->input->get('tgl2', true);
 
-	public function cetak_laporan_absen()
-	{
-		$data['tgl1'] = $this->input->get('tgl1', true);
-		$data['tgl2'] = $this->input->get('tgl2', true);
+                if ($data['tgl1'] != "" && $data['tgl2'] != "") {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '" and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
+                } elseif ($data['tgl1'] != "") {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '"')->result();
+                } elseif ($data['tgl2'] != "") {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
+                } else {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa')->result();
+                }
 
-		if ($data['tgl1'] != "" && $data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '" and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
-		} elseif ($data['tgl1'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '"')->result();
-		} elseif ($data['tgl2'] != "") {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
-		} else {
-			$data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa')->result();
-		}
+                $this->load->view('admin/header');
+                $this->load->view('admin/laporan_absen', $data);
+                $this->load->view('admin/footer');
+        }
 
-		$this->load->view('admin/cetak_laporan', $data);
-	}
+    public function cetak_laporan_absen()
+
+                $data['tgl1'] = $this->input->get('tgl1', true);
+                $data['tgl2'] = $this->input->get('tgl2', true);
+
+                if ($data['tgl1'] != "" && $data['tgl2'] != "") {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '" and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
+                } elseif ($data['tgl1'] != "") {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk >= "' . $data['tgl1'] . '"')->result();
+                } elseif ($data['tgl2'] != "") {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa and a.jam_masuk <= "' . $data['tgl2'] . '"')->result();
+                } else {
+                        $data['absen'] = $this->db->query('SELECT * FROM  absen a, mahasiswa b where a.id_mahasiswa=b.id_mahasiswa')->result();
+                }
+
+                $this->load->view('admin/cetak_laporan', $data);
+        }
 }

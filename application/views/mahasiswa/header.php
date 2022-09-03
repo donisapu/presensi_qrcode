@@ -67,14 +67,14 @@
    <div id="content">
 
 <!-- Topbar -->
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="background: purple">
 
     <!-- Sidebar Toggle (Topbar) -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= site_url('mahasiswa')?>">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <div class="sidebar-brand-icon rotate-n-15" style="color: purple">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3"> Presensi<br>QR-Code </div>
+        <div class="sidebar-brand-text mx-3" style="color: purple"> Presensi<br>QR-Code </div>
     </a>
 
 
@@ -88,7 +88,7 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('nama');?></span>
+                <span class="mr-2 d-none d-lg-inline text-black-600 small" style="color: black"><?= $this->session->userdata('nama');?></span>
                 <img class="img-profile rounded-circle"
                     src="<?php echo base_url("assets/admin/img/undraw_profile.svg");?>">
             </a>

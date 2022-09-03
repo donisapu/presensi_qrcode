@@ -3,7 +3,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Laporan Data Absensi</h6>
+            <h6 class="m-0 font-weight-bold text-purple" style="color: purple">Laporan Data Absensi</h6>
         </div>
         <div class="card-body">
             <form style="padding-bottom:20px;" class="form-inline" method="get" action="<?php echo site_url('admin/laporan_absen'); ?>" style="padding-bottom:20px;">
@@ -33,7 +33,7 @@
                 </div>
             </form>
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="color: black">
                     <thead>
                         <tr>
                             <th>No</th>

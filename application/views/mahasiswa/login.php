@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?php echo base_url("assets/admin/css/sb-admin-2.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/admin/css/sb-admin-2.css"); ?>" rel="stylesheet">
 
 </head>
 
@@ -37,22 +37,22 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Presensi</h1>
-                                        <span>QR-Code</span><hr>
-                                        <span>Ruang Mahasiswa</span>
+                                        <span style="color: black">QR-Code</span><hr>
+                                        <span style="color: black">Ruang Mahasiswa</span>
                                     </div>
                                     <form class="user" action="<?php echo base_url('loginmhs/do_login') ?>" method="post">
                                         <br>
                                         <?php echo $this->session->flashdata('gagal') ?>
                                         <br>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="username" placeholder="NIM" required>
+                                            <input style="color: black" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="username" placeholder="NIM" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password" required>
-                                            <span>*gunakan tanggal lahir untuk password(format:tahun-bulan-tanggal/2021-01-01)</span>
+                                            <input style="color: black" type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password" required>
+                                            <span style="color: black">*gunakan tanggal lahir untuk password(format:tahun-bulan-tanggal/2021-01-01)</span>
                                         </div>
                                         <br>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Login" style="background: purple">
 
                                         <br>
                                         <br>

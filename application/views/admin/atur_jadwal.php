@@ -3,21 +3,21 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Atur Jadwal</h6>
+                            <h6 class="m-0 font-weight-bold text-purple" style="color: purple">Atur Jadwal</h6>
                         </div>
                         <div class="card-body">
                         <?php echo $this->session->flashdata('suces')?>
                             <br>
 
-                <button type="button"  data-toggle="modal" data-target="#tambah" class="btn btn-light btn-icon-split">
-                    <span class="icon text-gray-600">
+                <button type="button"  data-toggle="modal" data-target="#tambah" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-purple-600">
                         <i class="fas fa-plus"></i>
                     </span>
                     <span class="text">Tambah</span>
                 </button> 
                 <br><br>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="color: black">
                         <thead>
                             <tr>
                             <th>No</th>
@@ -25,6 +25,7 @@
                             <th>Mapel</th>
                             <th>Hari</th>
                             <th>Jam Masuk</th>
+                            <th>Jam Pulang</th>
                             <th>Data Mahasiswa</th>
                             <th>Opsi</th>
                             </tr>
@@ -39,6 +40,7 @@
                         <td><?php echo $key->nama_mapel;?></td>
                         <td><?php echo $key->hari;?></td>
                         <td><?php echo $key->jam_masuk;?></td>
+                        <td><?php echo $key->jam_pulang;?></td>
                         <td>
                             <a href="<?= site_url('admin/detail_jadwal/'.$key->id_jadwal)?>" class="btn btn-primary btn-sm">Detail</a>
                         </td>
@@ -68,6 +70,8 @@
                                                 <input type="text" name="hari" class="form-control" value="<?= $key->hari?>" required><br>
                                                 <span>Jam Masuk</span>
                                                 <input type="time" name="jam_masuk" class="form-control" value="<?= $key->jam_masuk?>" required><br>
+                                                <span>Jam Pulang</span>
+                                                <input type="time" name="jam_pulang" class="form-control" value="<?= $key->jam_pulang?>" required><br>
                                                 
                                                 <div class="modal-footer">
                                                 <button class="btn btn-light" data-dismiss="modal">Batal</button>
@@ -115,6 +119,8 @@
                         <input type="text" name="hari" class="form-control" required><br>
                         <span>Jam Masuk</span>
                         <input type="time" name="jam_masuk" class="form-control" required><br>
+                        <span>Jam Pulang</span>
+                        <input type="time" name="jam_pulang" class="form-control" required><br>
                         <button class="btn btn-light" data-dismiss="modal">Batal</button>
                         <input type="submit" class="btn btn-primary" value="Tambah">
                         </div>

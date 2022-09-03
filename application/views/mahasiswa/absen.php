@@ -3,7 +3,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Absen Masuk</h6>
+                            <h6 class="m-0 font-weight-bold text-purple" style="color: purple">Absen Masuk</h6>
                         </div>
                         <div class="card-body">
                         <?php 
@@ -49,21 +49,21 @@
 
                         if($jadwal->hari != $d && $jadwal->jam_masuk < $t){?>
                             <div class="row">
-                                <div class="col-md-12" style="text-align: center"> 
+                                <div class="col-md-12" style="text-align: center; color: black"> 
                                     <p>Maaf tidak ada jadwal perkuliahan</p>
                                     <h3><b>Silakan Cek Jadwal Anda</b></h3>
                                     Jam: <?= $d.', <span id="clock"></span>'?> 
                                 </div>
                             </div>
                         <?php }else if($jadwal->hari == $d && $tutup == $t){?>
-                                <div class="col-md-12" style="text-align: center"> 
+                                <div class="col-md-12" style="text-align: center; color: black"> 
                                     <p>Maaf perkuliahan sudah selesai</p>
                                     <h3><b>Terimakasih</b></h3>
                                     Jam: <?= $d.', <span id="clock"></span>'?>
                                 </div>
                         <?php }else{?>
                             <div class="row">
-                                <div class="col-md-12" style="text-align: center"> 
+                                <div class="col-md-12" style="text-align: center; color: black"> 
                                     <p>Absen</p>
                                     <h3><b>Scan Disini</b></h3>
                                     <img src="<?= base_url('assets/qrcodeimg/'.$qrcode)?>"><hr>
@@ -76,7 +76,7 @@
                             <hr>
                             <div class="table-responsive">
                                 <table class="table table-bordered" width="100%" cellspacing="0">
-                                    <thead>
+                                    <thead style="color: black">
                                         <tr>
                                             <th>NIM </th>
                                             <th> : </th>
@@ -95,7 +95,7 @@
                                         <tr>
                                             <th>Jadwal </th>
                                             <th> : </th>
-                                            <td><?php echo $jadwal->hari.'/'.$jadwal->jam_masuk;?></td>
+                                            <td><?php echo 'Hari '.$jadwal->hari.'/ Jam Masuk: '.$jadwal->jam_masuk.'/ Jam Pulang: '.$jadwal->jam_pulang;?></td>
                                         </tr>
                                     </thead> 
                                 </table>
