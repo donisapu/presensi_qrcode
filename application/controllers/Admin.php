@@ -417,8 +417,9 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function laporan_absen(){
-		
+	public function laporan_absen()
+	{
+
                 $data['tgl1'] = $this->input->get('tgl1', true);
                 $data['tgl2'] = $this->input->get('tgl2', true);
 
@@ -435,9 +436,10 @@ class Admin extends CI_Controller
                 $this->load->view('admin/header');
                 $this->load->view('admin/laporan_absen', $data);
                 $this->load->view('admin/footer');
-        }
+    }
 
     public function cetak_laporan_absen()
+    {
 
                 $data['tgl1'] = $this->input->get('tgl1', true);
                 $data['tgl2'] = $this->input->get('tgl2', true);
@@ -453,5 +455,5 @@ class Admin extends CI_Controller
                 }
 
                 $this->load->view('admin/cetak_laporan', $data);
-        }
+    }
 }
